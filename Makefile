@@ -9,6 +9,12 @@ OBJFILES	= $(patsubst %.cc,$(OBJDIR)/%.o,$(notdir $(CXXFILES)))
 CXXFLAGS	= -g -O2 -std=c++20
 LDFLAGS		= -Wl,--gc-sections -mwindows
 
+ifeq  ($(shell uname),Linux)
+
+CXXFLAGS += -Iports/linux
+
+endif
+
 all: $(TARGET)
 
 clean:
