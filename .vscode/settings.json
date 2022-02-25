@@ -1,0 +1,14 @@
+{
+  "saveAndRun": {
+    "commands": [
+      {
+        "cmd": "clear; make"
+      }
+    ]
+  },
+  "files.associations": {
+    "*.mc": "json",
+    "*.meson": "meson",
+    "*.rh": "cpp"
+  }
+}
