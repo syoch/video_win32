@@ -6,8 +6,9 @@
 #define CALLBACK
 
 #define __TEXT(quote) L##quote
-
 #define TEXT(quote) __TEXT(quote)
+
+#define WINAPI
 
 #define CW_USEDEFAULT ((int)0x80000000)
 
