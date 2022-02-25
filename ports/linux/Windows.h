@@ -12,6 +12,8 @@
 
 #define CW_USEDEFAULT ((int)0x80000000)
 
+using CHAR = char;
+
 using HBITMAP = void *;
 using HDC = void *;
 using HWND = void *;
