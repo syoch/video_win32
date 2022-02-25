@@ -1,0 +1,44 @@
+#include "videoe.h"
+
+Timeline::Timeline(HWND hwnd) {
+  HDC hdc = GetDC(hwnd);
+
+  bitmap = CreateCompatibleBitmap(hdc, TIMELINE_BMP_WIDTH, TIMELINE_BMP_HEIGHT);
+  buffer = CreateCompatibleDC(hdc);
+
+  ReleaseDC(hwnd, hdc);
+}
+
+Timeline::~Timeline() {
+  DeleteObject(bitmap);
+  DeleteDC(buffer);
+}
+
+void Timeline::draw(HDC dest, Point drawpos) {
+
+  // background
+  PatBlt(buffer, 0, 0, TIMELINE_BMP_WIDTH, TIMELINE_BMP_HEIGHT, BLACKNESS);
+
+  
+
+  BitBlt(
+    dest,
+    drawpos.x, drawpos.y,
+    TIMELINE_BMP_WIDTH, TIMELINE_BMP_HEIGHT,
+    buffer,
+    0, 0,
+    SRCCOPY
+  );
+}
+
+void Timeline::mouse_down(MouseEvent) {
+
+}
+
+void Timeline::mouse_move(MouseEvent) {
+
+}
+
+void Timeline::mouse_up(MouseEvent) {
+
+}
