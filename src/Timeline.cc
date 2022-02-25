@@ -31,14 +31,14 @@ void Timeline::draw(HDC dest, Point drawpos) {
   );
 }
 
-void Timeline::mouse_down(MouseEvent) {
+void Timeline::mouse_down(MouseEvent e) {
 
 }
 
-void Timeline::mouse_move(MouseEvent) {
+void Timeline::mouse_move(MouseEvent e) {
 
 }
 
-void Timeline::mouse_up(MouseEvent) {
+void Timeline::mouse_up(MouseEvent e) {
 
 }
