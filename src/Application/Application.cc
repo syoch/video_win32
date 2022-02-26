@@ -21,8 +21,8 @@ LRESULT CALLBACK Application::wnd_proc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp
 	GetWindowInfo(hwnd, &window_info);
 
 	tl_drawpos = {
-		window_info.rcClient.right - window_info.rcClient.left,
-		window_info.rcClient.bottom - window_info.rcClient.top
+		0,
+		window_info.rcClient.bottom - window_info.rcClient.top - 240
 	};
 
   switch( msg ) {
