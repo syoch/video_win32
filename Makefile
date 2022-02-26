@@ -21,6 +21,10 @@ LDFLAGS		= -Wl,--gc-sections $(shell wx-config-gtk3 --libs)
 
 ifneq ($(OBJDIR),$(notdir $(CURDIR)))
 
+export OUTPUT	= $(CURDIR)/$(TARGET)
+export TOPDIR	= $(CURDIR)
+export VPATH	= $(foreach dir,$(SRCDIR),$(CURDIR)/$(dir)) $(foreach dir,$(SUBDIR),$(CURDIR)/$(SRCDIR)/$(dir))
+
 CFILES		= $(foreach dir,$(VPATH),$(notdir $(wildcard $(dir)/*.c)))
 CXXFILES	= $(foreach dir,$(VPATH),$(notdir $(wildcard $(dir)/*.cc)))
 
