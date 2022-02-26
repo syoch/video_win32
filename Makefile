@@ -21,12 +21,13 @@ LDFLAGS		= -Wl,--gc-sections -mwindows
 
 ifneq ($(OBJDIR),$(notdir $(CURDIR)))
 
+export OUTPUT	= $(CURDIR)/$(TARGET)
+export TOPDIR	= $(CURDIR)
+export VPATH	= $(foreach dir,$(SRCDIR),$(CURDIR)/$(dir)) $(foreach dir,$(SUBDIR),$(CURDIR)/$(SRCDIR)/$(dir))
+
 CFILES		= $(foreach dir,$(VPATH),$(notdir $(wildcard $(dir)/*.c)))
 CXXFILES	= $(foreach dir,$(VPATH),$(notdir $(wildcard $(dir)/*.cc)))
 
-export OUTPUT	= $(CURDIR)/$(TARGET)
-export TOPDIR	= $(CURDIR)
-export VPATH	= $(CURDIR)/$(SRCDIR) $(foreach dir,$(SUBDIR),$(CURDIR)/$(SRCDIR)/$(dir))
 export OFILES	= $(CFILES:.c=.o) $(CXXFILES:.cc=.o)
 export INCLUDES	= $(foreach dir,$(INCLDIR),$(CURDIR)/$(dir))
 
