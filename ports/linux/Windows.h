@@ -5,7 +5,7 @@
 
 #define CALLBACK
 
-#define __TEXT(quote) L##quote
+#define __TEXT(quote) (LPWSTR) L##quote
 #define TEXT(quote) __TEXT(quote)
 
 #define WINAPI
@@ -106,7 +106,6 @@ WINBOOL GetMessage(LPMSG lpMsg, HWND hWnd, UINT wMsgFilterMin,
 WINBOOL TranslateMessage(const MSG *lpMsg);
 
 LRESULT DispatchMessage(const MSG *lpMsg);
-
 HBITMAP CreateCompatibleBitmap(HDC hdc, int cx, int cy);
 
 HDC CreateCompatibleDC(HDC hdc);
@@ -117,6 +116,7 @@ WINBOOL DeleteObject(HGDIOBJ ho);
 WINBOOL BitBlt(HDC hdc, int x, int y, int cx, int cy, HDC hdcSrc, int x1,
                int y1, DWORD rop);
 WINBOOL PatBlt(HDC hdc, int x, int y, int w, int h, DWORD rop);
+HGDIOBJ GetStockObject(int fnObject);
 
 #define SRCCOPY (DWORD)0x00CC0020
 #define SRCPAINT (DWORD)0x00EE0086
