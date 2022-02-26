@@ -31,6 +31,7 @@ export OFILES	= $(CFILES:.c=.o) $(CXXFILES:.cc=.o)
 export INCLUDES	= $(foreach dir,$(INCLDIR),$(CURDIR)/$(dir))
 
 all: $(OBJDIR)
+	@$(MAKE) --no-print-directory -C $(OBJDIR) -f $(CURDIR)/Makefile
 
 clean:
 	@rm -rf $(OBJDIR) $(TARGET).exe
@@ -39,7 +40,7 @@ re: clean all
 
 $(OBJDIR):
 	@[ -d $@ ] || mkdir -p $@
-	@$(MAKE) --no-print-directory -C $(OBJDIR) -f $(CURDIR)/Makefile
+
 
 else
 
